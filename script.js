@@ -8,6 +8,12 @@ function PicProperties(width, height, rect_fill, back_fill){
     this.back_fill = back_fill
 }
 
-const propertie_stroke_1 = PicProperties(100, 100, 'red', 'black')
+const propertie_stroke_1 = new PicProperties(100, 100, 'red', 'black')
 
-function rePic(object_list){}
+function rePic(object_list){
+    //importing properties
+    canvas.width = object_list.width
+    canvas.height = object_list.height
+}
+
+rePic(propertie_stroke_1)
