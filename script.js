@@ -14,6 +14,10 @@ function rePic(object_list){
     //importing properties
     canvas.width = object_list.width
     canvas.height = object_list.height
+
+    //creating background
+    ctxt.fillStyle = object_list.back_fill
+    ctxt.fillRect(0,0,canvas.width,canvas.height)
 }
 
 rePic(propertie_stroke_1)
