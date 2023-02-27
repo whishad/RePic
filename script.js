@@ -7,3 +7,5 @@ function PicProperties(width, height, rect_fill, back_fill){
     this.rect_fill = rect_fill
     this.back_fill = back_fill
 }
+
+const propertie_stroke_1 = PicProperties(100, 100, 'red', 'black')
