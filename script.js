@@ -9,3 +9,5 @@ function PicProperties(width, height, rect_fill, back_fill){
 }
 
 const propertie_stroke_1 = PicProperties(100, 100, 'red', 'black')
+
+function rePic(object_list){}
