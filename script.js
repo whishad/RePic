@@ -43,21 +43,34 @@ function rePic(object_list){
 
     //loop for generating pictures
     for(let i = 0; i < count_x * count_y; i++){
-        ctxt.beginPath()
-        ctxt.rect(margin_x, margin_y, inner_rect_width, inner_rect_height)
-        ctxt.fillStyle = object_list.rect_fill
-        ctxt.fillRect(margin_x, margin_y, inner_rect_width, inner_rect_height)
-        ctxt.stroke()
+        //randomise logic
+        if(trigger === 1){
+            ctxt.beginPath()
+            ctxt.rect(margin_x, margin_y, inner_rect_width, inner_rect_height)
+            ctxt.fillStyle = object_list.rect_fill
+            ctxt.fillRect(margin_x, margin_y, inner_rect_width, inner_rect_height)
+            ctxt.stroke()
 
-        //writing distance logic
-        if(counter_x + 1 === count_x){
-            counter_x = 0
-            margin_x = 0
+            //writing distance logic
+            if(counter_x + 1 === count_x){
+                counter_x = 0
+                margin_x = 0
 
-            margin_y += inner_rect_height
+                margin_y += inner_rect_height
+            }else{
+                counter_x++
+                margin_x += inner_rect_width
+            }
         }else{
-            counter_x += 1
-            margin_x += inner_rect_width
+            if(counter_x + 1 === count_x){
+                counter_x = 0
+                margin_x = 0
+
+                margin_y += inner_rect_height
+            }else{
+                counter_x++
+                margin_x += inner_rect_width
+            }
         }
     }
 }
