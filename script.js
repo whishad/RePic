@@ -30,6 +30,15 @@ function rePic(object_list){
     //inner rectangles width and height
     const inner_rect_width = Math.floor(canvas.width / count_x)
     const inner_rect_height = Math.floor(canvas.height / count_y)
+
+    //loop for generating pictures
+    for(let i = 0; i < count_x * count_y; i++){
+        ctxt.beginPath()
+        ctxt.rect(0, 0, inner_rect_width, inner_rect_height)
+        ctxt.fillStyle = object_list.rect_fill
+        ctxt.fillRect(0, 0, inner_rect_width, inner_rect_height)
+        ctxt.stroke()
+    }
 }
 
 rePic(propertie_stroke_1)
