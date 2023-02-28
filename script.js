@@ -45,6 +45,17 @@ function rePic(object_list){
         ctxt.fillStyle = object_list.rect_fill
         ctxt.fillRect(margin_x, margin_y, inner_rect_width, inner_rect_height)
         ctxt.stroke()
+
+        //writing distance logic
+        if(counter_x + 1 === count_x){
+            counter_x = 0
+            margin_x = 0
+
+            margin_y += inner_rect_height
+        }else{
+            counter_x += 1
+            margin_x += inner_rect_width
+        }
     }
 }
 
