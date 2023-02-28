@@ -9,26 +9,41 @@ function PicProperties(width = 400, height = 200, back_fill = "rgb(0, 0, 0, 0)",
     this.colorful = colorful
 }
 
-const propertie_stroke_1 = new PicProperties(100, 100, 'black')
+const propertie_stroke_1 = new PicProperties(100, 100, 'black', false, false)
 
 function rePic(object_list){
     //propertie_list handler
     const listHandler = {
         cnvs_width: object_list.width,
         cnvs_height: object_list.height,
-        rect_fill: () => {
-            let rect_fill_res = object_list.rect_fill
+        cache: {
+            color: undefined,
+        },
+        rect_fill: function fillRect(){
+            const cache = this.cache
+            const rect_fill = object_list.rect_fill
+            let rect_fill_res = rect_fill
+            const colorful = object_list.colorful
 
-            if(typeof(rect_fill) !== "string"){
-                rect_fill_clr_arr = ["rgb(118, 255, 124)", "rgb(255, 162, 162)", 
-                "rgb(180, 255, 118)", "rgb(118, 255, 171)", "rgb(118, 196, 255)", 
-                "rgb(164, 118, 255)", "rgb(255, 118, 118)", "rgb(255, 171, 118)",
-                "rgb(168, 255, 118)", "rgb(173, 118, 255)", "rgb(228, 118, 255)"]
+            if(!rect_fill){
+                if(cache.color && !colorful){
+                    console.log('from cache')
+                    return cache.color
+                }else{
+                    rect_fill_clr_arr = ["rgb(118, 255, 124)", "rgb(255, 162, 162)", 
+                    "rgb(180, 255, 118)", "rgb(118, 255, 171)", "rgb(118, 196, 255)", 
+                    "rgb(164, 118, 255)", "rgb(255, 118, 118)", "rgb(255, 171, 118)",
+                    "rgb(168, 255, 118)", "rgb(173, 118, 255)", "rgb(228, 118, 255)"]
 
-                rect_fill_res = rect_fill_clr_arr[Math.floor(Math.random() * 10)]
+                    rect_fill_res = rect_fill_clr_arr[Math.floor(Math.random() * 10)]
+
+                    cache.color = rect_fill_res
+
+                    return rect_fill_res
+                }
+            }else{
+                return rect_fill_res
             }
-
-            return rect_fill_res
         },
         back_fill: object_list.back_fill,
     }
@@ -69,7 +84,7 @@ function rePic(object_list){
         if(trigger === 1){
             ctxt.beginPath()
             ctxt.rect(margin_x, margin_y, inner_rect_width, inner_rect_height)
-            ctxt.fillStyle = listHandler.rect_fill()
+            ctxt.fillStyle = listHandler.rect_fill('red')
             ctxt.fillRect(margin_x, margin_y, inner_rect_width, inner_rect_height)
             ctxt.stroke()
 
