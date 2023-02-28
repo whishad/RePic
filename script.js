@@ -25,23 +25,30 @@ function rePic(object_list){
             let rect_fill_res = rect_fill
             const colorful = object_list.colorful
 
+            //detect default color is exist or no
             if(!rect_fill){
+                //checks the fillcolor flag and, depending on it, gets the same color, or generates constantly
                 if(cache.color && !colorful){
-                    console.log('from cache')
+                    //returning color from cache
                     return cache.color
                 }else{
+                    //colors array
                     rect_fill_clr_arr = ["rgb(118, 255, 124)", "rgb(255, 162, 162)", 
                     "rgb(180, 255, 118)", "rgb(118, 255, 171)", "rgb(118, 196, 255)", 
                     "rgb(164, 118, 255)", "rgb(255, 118, 118)", "rgb(255, 171, 118)",
                     "rgb(168, 255, 118)", "rgb(173, 118, 255)", "rgb(228, 118, 255)"]
 
+                    //getting random color
                     rect_fill_res = rect_fill_clr_arr[Math.floor(Math.random() * 10)]
 
+                    //write color in chache
                     cache.color = rect_fill_res
 
+                    //returning color
                     return rect_fill_res
                 }
             }else{
+                //if else,then returning default color
                 return rect_fill_res
             }
         },
