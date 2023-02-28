@@ -8,14 +8,27 @@ function PicProperties(width = 400, height = 200, rect_fill, back_fill = "rgb(0,
     this.back_fill = back_fill
 }
 
-const propertie_stroke_1 = new PicProperties(100, 100, 'red', 'black')
+const propertie_stroke_1 = new PicProperties(100, 100, 0, 'black')
 
 function rePic(object_list){
     //propertie_list handler
     const listHandler = {
         cnvs_width: object_list.width,
         cnvs_height: object_list.height,
-        rect_fill: object_list.rect_fill,
+        rect_fill: () => {
+            let rect_fill_res = object_list.rect_fill
+
+            if(typeof(rect_fill) !== "string"){
+                rect_fill_clr_arr = ["rgb(118, 255, 124)", "rgb(255, 162, 162)", 
+                "rgb(180, 255, 118)", "rgb(118, 255, 171)", "rgb(118, 196, 255)", 
+                "rgb(164, 118, 255)", "rgb(255, 118, 118)", "rgb(255, 171, 118)",
+                "rgb(168, 255, 118)", "rgb(173, 118, 255)", "rgb(228, 118, 255)"]
+
+                rect_fill_res = rect_fill_clr_arr[Math.floor(Math.random() * 10)]
+            }
+
+            return rect_fill_res
+        },
         back_fill: object_list.back_fill,
     }
     //importing properties
@@ -55,7 +68,7 @@ function rePic(object_list){
         if(trigger === 1){
             ctxt.beginPath()
             ctxt.rect(margin_x, margin_y, inner_rect_width, inner_rect_height)
-            ctxt.fillStyle = object_list.rect_fill
+            ctxt.fillStyle = listHandler.rect_fill()
             ctxt.fillRect(margin_x, margin_y, inner_rect_width, inner_rect_height)
             ctxt.stroke()
 
