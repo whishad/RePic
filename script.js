@@ -11,9 +11,16 @@ function PicProperties(width, height, rect_fill, back_fill){
 const propertie_stroke_1 = new PicProperties(100, 100, 'red', 'black')
 
 function rePic(object_list){
+    //propertie_list handler
+    const listHandler = {
+        cnvs_width: object_list.width,
+        cnvs_height: object_list.height,
+        rect_fill: object_list.rect_fill,
+        back_fill: object_list.back_fill,
+    }
     //importing properties
-    canvas.width = object_list.width
-    canvas.height = object_list.height
+    canvas.width = listHandler.cnvs_width
+    canvas.height = listHandler.cnvs_height
 
     //creating background
     ctxt.fillStyle = object_list.back_fill
