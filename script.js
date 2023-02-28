@@ -25,7 +25,11 @@ function rePic(object_list){
 
     //number of rectangles by x and y
     const count_x = width_num * 3
-    const count_y = height_num * 3 
+    const count_y = height_num * 3
+
+    //inner rectangles width and height
+    const inner_rect_width = Math.floor(canvas.width / count_x)
+    const inner_rect_height = Math.floor(canvas.height / count_y)
 }
 
 rePic(propertie_stroke_1)
