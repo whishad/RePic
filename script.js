@@ -18,6 +18,10 @@ function rePic(object_list){
     //creating background
     ctxt.fillStyle = object_list.back_fill
     ctxt.fillRect(0,0,canvas.width,canvas.height)
+
+    //getting canvas width first number,for future Math calculation
+    const width_num = Number(String(canvas.width)[0])
+    const height_num = Number(String(canvas.height)[0])
 }
 
 rePic(propertie_stroke_1)
