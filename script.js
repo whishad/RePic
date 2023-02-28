@@ -27,6 +27,9 @@ function rePic(object_list){
     const count_x = width_num * 3
     const count_y = height_num * 3
 
+    //counter for counting the distance traveled by x
+    let counter_x = 0
+    
     //inner rectangles width and height
     const inner_rect_width = Math.floor(canvas.width / count_x)
     const inner_rect_height = Math.floor(canvas.height / count_y)
