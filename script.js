@@ -52,17 +52,14 @@ function rePic(object_list){
             ctxt.fillRect(margin_x, margin_y, inner_rect_width, inner_rect_height)
             ctxt.stroke()
 
-            //writing distance logic
-            if(counter_x + 1 === count_x){
-                counter_x = 0
-                margin_x = 0
+            distanceLog()
 
-                margin_y += inner_rect_height
-            }else{
-                counter_x++
-                margin_x += inner_rect_width
-            }
         }else{
+            distanceLog()
+        }
+
+        function distanceLog(){
+            //distance logic
             if(counter_x + 1 === count_x){
                 counter_x = 0
                 margin_x = 0
