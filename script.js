@@ -1,21 +1,23 @@
 const canvas = document.querySelector('canvas')
 const ctxt = canvas.getContext('2d')
 
-function PicProperties(width = 400, height = 200, back_fill = "rgb(0, 0, 0, 0)", rect_fill, colorful){
+function PicProperties(width = 400, height = 200, number_of_rect, back_fill = "rgb(0, 0, 0, 0)", rect_fill, colorful){
     this.width = width
     this.height = height
+    this.number = number_of_rect
     this.back_fill = back_fill
     this.rect_fill = rect_fill
     this.colorful = colorful
 }
 
-const propertie_stroke_1 = new PicProperties(100, 100, 'black', false, false)
+const propertie_stroke_1 = new PicProperties(10, 10, 2, 'black', false, false)
 
 function rePic(object_list){
     //propertie_list handler
     const listHandler = {
         cnvs_width: object_list.width,
         cnvs_height: object_list.height,
+        number: object_list.number,
         cache: {
             color: undefined,
         },
@@ -67,8 +69,8 @@ function rePic(object_list){
     const height_num = Number(String(canvas.height)[0])
 
     //number of rectangles by x and y
-    const count_x = width_num * 3
-    const count_y = height_num * 3
+    const count_x = listHandler.number
+    const count_y = listHandler.number
 
     //counter for counting the distance traveled by x
     let counter_x = 0
