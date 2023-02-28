@@ -34,6 +34,9 @@ function rePic(object_list){
     let margin_x = 0
     let margin_y = 0
 
+    //trigger for random
+    let trigger = 1
+
     //inner rectangles width and height
     const inner_rect_width = Math.floor(canvas.width / count_x)
     const inner_rect_height = Math.floor(canvas.height / count_y)
