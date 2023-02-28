@@ -44,6 +44,7 @@ function rePic(object_list){
     //loop for generating pictures
     for(let i = 0; i < count_x * count_y; i++){
         //randomise logic
+        trigger = Math.round(Math.random())
         if(trigger === 1){
             ctxt.beginPath()
             ctxt.rect(margin_x, margin_y, inner_rect_width, inner_rect_height)
