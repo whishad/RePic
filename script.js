@@ -41,9 +41,9 @@ function rePic(object_list){
     //loop for generating pictures
     for(let i = 0; i < count_x * count_y; i++){
         ctxt.beginPath()
-        ctxt.rect(0, 0, inner_rect_width, inner_rect_height)
+        ctxt.rect(margin_x, margin_y, inner_rect_width, inner_rect_height)
         ctxt.fillStyle = object_list.rect_fill
-        ctxt.fillRect(0, 0, inner_rect_width, inner_rect_height)
+        ctxt.fillRect(margin_x, margin_y, inner_rect_width, inner_rect_height)
         ctxt.stroke()
     }
 }
