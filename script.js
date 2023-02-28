@@ -22,6 +22,10 @@ function rePic(object_list){
     //getting canvas width first number,for future Math calculation
     const width_num = Number(String(canvas.width)[0])
     const height_num = Number(String(canvas.height)[0])
+
+    //number of rectangles by x and y
+    const count_x = width_num * 3
+    const count_y = height_num * 3 
 }
 
 rePic(propertie_stroke_1)
