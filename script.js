@@ -1,11 +1,12 @@
 const canvas = document.querySelector('canvas')
 const ctxt = canvas.getContext('2d')
 
-function PicProperties(width = 400, height = 200, back_fill = "rgb(0, 0, 0, 0)", rect_fill){
+function PicProperties(width = 400, height = 200, back_fill = "rgb(0, 0, 0, 0)", rect_fill, colorful){
     this.width = width
     this.height = height
     this.back_fill = back_fill
     this.rect_fill = rect_fill
+    this.colorful = colorful
 }
 
 const propertie_stroke_1 = new PicProperties(100, 100, 'black')
