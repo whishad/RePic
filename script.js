@@ -10,7 +10,7 @@ function PicProperties(width = 400, height = 200, number_of_rect, back_fill = "r
     this.colorful = colorful
 }
 
-const propertie_stroke_1 = new PicProperties(10, 10, 2, 'black', false, false)
+const propertie_stroke_1 = new PicProperties(100, 100, 2, 'black', false, false)
 
 function rePic(object_list){
     //propertie_list handler
